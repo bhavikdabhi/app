@@ -316,6 +316,33 @@
   }
   
   
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 600px;
+    padding: 100px 20px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s step-end;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    display: grid;
+    place-items: center;
+    min-height: 600px;
+    text-align: center;
+    padding-top: 125px;
+  }
+
+
+
+/* 
 .hero {
     background-image: url("../img/bg.jpg");
     background-repeat: no-repeat;
@@ -328,7 +355,7 @@
     min-height: 600px;
     text-align: center;
     padding-top: 125px;
-  }
+  } */
   
   .hero-title { margin-bottom: 20px; }
   

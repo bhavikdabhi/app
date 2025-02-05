@@ -3,22 +3,18 @@
       <main>
         <article>
 
-            <section class="hero" id="home">
-                <div class="container">
-        
-                  <h3 class="h1 hero-title"><b>Wonderland Holiday</b></h3>
-        
-                  <p class="hero-text">
-                    Wonderland Holiday is an Indian travel company based in Surat since 2018. With over 14 years of combined experience, our young, energetic team is known for impeccable service and strong moral values. Our custom-designed tour itineraries have attracted clients worldwide, placing us among the top players in the global travel industry. </p>
-        
-                  <div class="btn-group">
-                    <button class="btn btn-primary">Learn more</button>
-        
-                    <button class="btn btn-secondary">Book now</button>
-                  </div>
-        
-                </div>
-              </section>
+        <section class="hero" id="home">
+  <div class="container">
+    <h3 class="h1 hero-title"><b>Wonderland Holiday</b></h3>
+    <p class="hero-text">
+      Wonderland Holiday is an Indian travel company based in Surat since 2018. With over 14 years of combined experience, our young, energetic team is known for impeccable service and strong moral values. Our custom-designed tour itineraries have attracted clients worldwide, placing us among the top players in the global travel industry.
+    </p>
+    <div class="btn-group">
+      <button class="btn btn-primary">Learn more</button>
+      <button class="btn btn-secondary">Book now</button>
+    </div>
+  </div>
+</section>
 
               <!-- Booking  -->
               <section class="tour-search">
@@ -383,3 +379,20 @@
       
 
    </body>
+
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroSection = document.querySelector(".hero");
+    const images = ["./assets/img/bg.jpg", "./assets/img/india.jpg"];
+    let currentIndex = 0;
+    
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      heroSection.style.opacity = 0;
+      setTimeout(() => {
+        heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+        heroSection.style.opacity = 1;
+      }, 5000); // Smooth transition effect
+    }, 5000); // Change image every 5 seconds
+  });
+</script>
