@@ -566,7 +566,7 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
- 
+  padding-bottom: 50px;
 }
 
 
@@ -673,6 +673,7 @@
 */
   
   .footer-top {
+    padding-top: 10px;
     background: var(--gunmetal);
     padding-block: var(--section-padding);
     color: var(--gainsboro);
