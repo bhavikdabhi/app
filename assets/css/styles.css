@@ -833,7 +833,7 @@
 @media (min-width: 580px) {
 
 
-    .container {
+    .container  {
       max-width: 580px;
       margin-inline: auto;
     }
@@ -920,7 +920,7 @@
   
     }
 
-    .container { max-width: 800px; }
+    .container{ max-width: 800px; }
   
     .section-text {
       max-width: 109ch;
@@ -977,7 +977,7 @@
     .package-card .card-price .wrapper { margin-bottom: 15px; }
   
 
-    .gallery { padding-bottom: calc(var(--section-padding * 2)); }
+    .gallery .service-container { padding-bottom: calc(var(--section-padding * 2)); }
   
     .gallery-list {
       grid-template-columns: repeat(3, 1fr);
