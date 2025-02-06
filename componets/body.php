@@ -19,31 +19,27 @@
               <!-- Booking  -->
               <section class="tour-search">
                 <div class="container">
-                  <form action="" class="tour-search-form">
-              
-                    <div class="input-wrapper">
-                      <label for="destination" class="input-label">Search Destination*</label>
-                      <input type="text" name="destination" id="destination" required placeholder="Enter Destination" class="input-field">
-                    </div>
-              
-                    <div class="input-wrapper">
-                      <label for="people" class="input-label">Contact Number*</label>
-                      <input type="number" name="people" id="people" required placeholder="Contact Number" class="input-field">
-                    </div>
-              
-                    <div class="input-wrapper">
-                      <label for="checkin" class="input-label">Check-in Date*</label>
-                      <input type="date" name="checkin" id="checkin" required class="input-field">
-                    </div>
-              
-                    <div class="input-wrapper">
-                      <label for="checkout" class="input-label">Checkout Date*</label>
-                      <input type="date" name="checkout" id="checkout" required class="input-field">
-                    </div>
-              
-                    <button type="submit" class="btn btn-secondary">Inquire Now</button>
-              
-                  </form>
+                <form action="./componets/sendm.php" method="POST" class="tour-search-form">
+                <div class="input-wrapper">
+            <label for="name" class="input-label">Your Name*</label>
+            <input type="text" name="name" id="name"  placeholder="Enter Your Name" required class="input-field">
+            
+        </div>
+        <div class="input-wrapper">
+            <label for="destination" class="input-label">Search Destination*</label>
+            <input type="text" name="destination" id="destination" required placeholder="Enter Destination" class="input-field">
+        </div>
+        <div class="input-wrapper">
+            <label for="people" class="input-label">Contact Number*</label>
+            <input type="number" name="people" id="people" required placeholder="Contact Number" class="input-field">
+        </div>
+        <div class="input-wrapper">
+            <label for="date" class="input-label">Traveling Date*</label>
+            <input type="date" name="date" id="date" required class="input-field">
+        </div>
+        
+        <button type="submit" class="btn btn-secondary">Inquire Now</button>
+    </form>
                 </div>
               </section>
               
@@ -371,8 +367,35 @@
 
   </div>
 </section>
+  <!-- contact us -->
+  <section class="popular" id="contact">
+  <p class="section-subtitle">Contact us</p>
 
+<h2 class="h2 section-title">Stay Connected</h2>
 
+<p class="section-text">
+Planning your next trip? Have questions about our travel packages? Contact us, and let’s make your journey unforgettable!
+</p>
+    <div class="mai">
+          <div class="containe">
+            <div class="form">
+                <h2 class="h2 section-title">Contact Us</h2>
+                <p class="section-text">Feel free to reach out for any inquiries or feedback. We are here to help!</p>
+                <div class="inputs">
+                  <form action="./componets/mailcont.php" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" name="message" required></textarea>
+                    <button type="submit">Send Message</button>
+                  </form>
+                </div>                
+            </div>
+            <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d465.1462614539164!2d72.77346408239563!3d21.145628232675293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be053a04e416cf5%3A0xdc15853ecdcbcf41!2sWonderland%20Holiday!5e0!3m2!1sen!2sin!4v1738836819403!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+    </div>
+</section>
         </article>
       </main>
 
