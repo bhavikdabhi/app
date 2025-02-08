@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --ff-poppins: "Poppins", sans-serif;
+    --ff-nunito: "Nunito", sans-serif;
+    --primary-color: #3b79c9;
+    --secondary-color: #ffffff;
+    --text-color: #333;
+    --border-color: #ccc;
+    --hover-color: #3166b0;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: var(--ff-nunito);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    font-family: var(--ff-poppins);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input, textarea {
+    width: calc(100% - 20px);
+    max-width: 300px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--ff-nunito);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--secondary-color);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: var(--ff-poppins);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+.view-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--hover-color);
+    border: none;
+    color: var(--secondary-color);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: var(--ff-poppins);
+}
+
+.view-btn:hover {
+    background-color: var(--primary-color);
+}
+.button-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.download-btn {
+    background-color: #28a745; /* Green */
+}
+
+.edit-btn {
+    background-color: #ffc107; /* Yellow */
+}
+
+.delete-btn {
+    background-color: #dc3545; /* Red */
+}
+
+.no-pdf {
+    color: red;
+    font-size: 14px;
+}

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #3b79c9;
+    --secondary-color: #ffffff;
+    --text-color: #333;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --hover-bg: #3166b0;
+    --logout-color: #e74c3c;
+    --card-bg: #f8f9fa;
+    --btn-radius: 6px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: var(--secondary-color);
+    flex-direction: column;
+}
+
+.header {
+background: var(--sidebar-bg);
+padding: 15px 20px;
+display: flex;
+justify-content: space-between; /* Aligns items on opposite sides */
+align-items: center;
+color: var(--secondary-color);
+font-size: 18px;
+font-weight: 600;
+}
+
+.header .logo {
+font-size: 20px;
+font-weight: bold;
+}
+
+.header nav {
+flex-grow: 1;  /* Ensures the nav stays centered */
+display: flex;
+justify-content: center; /* Centers the links */
+gap: 20px;
+}
+
+.header a {
+text-decoration: none;
+color: var(--secondary-color);
+font-size: 16px;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--sidebar-text);
+    font-size: 16px;
+    padding: 12px;
+    border-radius: var(--btn-radius);
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: var(--hover-bg);
+}
+
+.logout-btn {
+    background: var(--logout-color) !important;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+    width: calc(100% - 260px);
+}
+
+.main-content h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.button-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 4px;
+}
+
+
+
+
+.menu-btn {
+display: none; /* Hidden on larger screens */
+}
+@media (max-width: 768px) {
+.menu-btn {
+display: block;
+position: fixed;
+top: 15px;
+right: 15px; /* Move menu button to the right corner */
+background: none;
+border: none;
+font-size: 28px;
+cursor: pointer;
+color: var(--secondary-color);
+z-index: 1100;
+}
+
+.sidebar {
+position: fixed;
+left: -260px; /* Sidebar hidden initially */
+top: 0;
+width: 260px;
+height: 100vh;
+background: var(--sidebar-bg);
+transition: left 0.3s ease-in-out;
+z-index: 1000;
+box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.open {
+left: 0; /* Show sidebar when toggled */
+}
+
+.main-content {
+margin-left: 0;
+width: 100%;
+transition: margin-left 0.3s ease-in-out;
+padding: 20px;
+}
+
+.sidebar.open ~ .main-content {
+margin-left: 260px; /* Push content when sidebar is open */
+}
+
+/* Fix button alignment issue */
+.button-group {
+display: flex;
+flex-wrap: wrap; /* Wrap buttons instead of forcing them to one line */
+justify-content: center; /* Center-align buttons */
+gap: 8px;
+}
+/* 
+.btn {
+padding: 10px 14px;
+border: none;
+border-radius: 6px;
+text-decoration: none;
+color: white;
+font-size: 14px;
+text-align: center;
+transition: 0.3s;
+width: 100%;
+max-width: 150px; } 
+ */
+}
+
+
+/* ✅ Button Group inside Popular Card */
+.popular-card .button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* ✅ Buttons */
+.popular-card .btn {
+    padding: 10px 14px;
+    border: none;
+    border-radius: var(--btn-radius);
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 150px;
+}
+.card-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    text-align: justify;
+}
+.popular-card .btn:hover {
+    opacity: 0.8;
+}
+
+/* ✅ Specific Button Colors */
+.popular-card .upload-btn {
+    background-color: var(--primary-color);
+}
+
+.popular-card .edit-btn {
+    background-color: var(--primary-color);
+}
+
+.popular-card .download-btn {
+    background-color: var(--primary-color);
+}
+
+.popular-card .delete-btn {
+    background-color: #dc3545;
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 768px) {
+    .popular-card {
+        padding: 15px;
+    }
+
+    .popular-card .button-group {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2x2 layout */
+        gap: 8px;
+    }
+
+    .popular-card .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .popular-card .button-group {
+        grid-template-columns: repeat(1, 1fr); /* Stack buttons in 1 column for small screens */
+    }
+}

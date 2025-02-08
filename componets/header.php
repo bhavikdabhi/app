@@ -1,17 +1,11 @@
 <header class="header" data-header>            
         <div class="header-bottom">
           <div class="container">      
-            <a href="tel:+919998963732" class="helpline-box">      
-                <div class="icon-box">
+           
+              <div class="">
                 
-                  <img src="./assets/img/icon/pcall.svg"> 
-                </div>      
-                <div class="wrapper">
-                  <p class="helpline-title">For Further Inquires :</p>      
-                  <p class="helpline-number">+919998963732</p>
-                </div>        
-              </a>
-             
+                <img src="./assets/img/icon/logo.png" height="70px"> 
+              </div> 
             <nav class="navbar" data-navbar>    
               <div class="navbar-top"> 
                          
@@ -31,9 +25,9 @@
                   <a href="#" class="navbar-link" data-nav-link>about us</a>
                 </li>
       
-                <!-- <li>
-                  <a href="#destination" class="navbar-link" data-nav-link></a>
-                </li> -->
+                 <li>
+                  <a href="./upload/view_images.php" class="navbar-link" data-nav-link>Destination</a>
+                </li> 
       
                 <li>
                   <a href="#package" class="navbar-link" data-nav-link>packages</a>
@@ -43,9 +37,9 @@
                   <a href="#service" class="navbar-link" data-nav-link>Service</a>
                 </li>
 
-                <li>
+                <!-- <li>
                   <a href="#gallery" class="navbar-link" data-nav-link>gallery</a>
-                </li>
+                </li> -->
       
                 <li>
                   <a href="#contact" class="navbar-link" data-nav-link>contact us</a>
@@ -54,8 +48,17 @@
               </ul>
 
             </nav>
-      
-            <button class="btn btn-primary">Book Now</button>
+            <a href="tel:+919998963732" class="helpline-box">      
+                <div class="icon-box">
+                
+                  <img src="./assets/img/icon/pcall.svg"> 
+                </div>      
+                <div class="wrapper">
+                  <p class="helpline-title">For Further Inquires :</p>      
+                  <p class="helpline-number">+919998963732</p>
+                </div>        
+              </a>
+            <!-- <button class="btn btn-primary">Book Now</button> -->
             <div class="header-btn-group">
             <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><g fill="none"><path d="M0 0h24v24H0V0z"/><path d="M0 0h24v24H0V0z" opacity=".87"/></g><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7zm-4 6h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
