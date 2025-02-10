@@ -230,7 +230,7 @@ if (mysqli_num_rows($result) > 0) {
                     <div class='button-group'>
                         <a href='edit_pdf.php?id=$imageId' class='btn upload-btn'>Upload PDF</a>
                         <a href='edit_image.php?id=$imageId' class='btn edit-btn'>Edit</a>
-                        " . ($pdfExists ? "<a href='download_pdf.php?id=$imageId' class='btn download-btn'>PDF</a>" 
+                        " . ($pdfExists ? "<a href='download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>PDF</a>" 
                         : "<span class='no-pdf'>No PDF Available</span>") . "
                         <a href='delete_image.php?id=$imageId' class='btn delete-btn' onclick='return confirm(\"Are you sure you want to delete this record?\")'>Delete</a>
                         

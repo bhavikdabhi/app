@@ -87,7 +87,7 @@ include_once '../upload/db_config.php';
                                 <div class='button-group'>
                                     <a href='../upload/edit_pdf.php?id=$imageId' class='btn upload-btn'>Upload PDF</a>
                                     <a href='../upload/edit_image.php?id=$imageId' class='btn edit-btn'>Edit</a>
-                                    " . ($pdfExists ? "<a href='../upload/download_pdf.php?id=$imageId' class='btn download-btn'>PDF</a>" 
+                                    " . ($pdfExists ? "<a href='../upload/download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>PDF</a>" 
                                     : "<span class='no-pdf'>No PDF Available</span>") . "
                                     <a href='../upload/delete_image.php?id=$imageId' class='btn delete-btn' onclick='return confirm(\"Are you sure you want to delete this record?\")'>Delete</a>
                                 </div>

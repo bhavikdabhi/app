@@ -224,7 +224,7 @@ if (mysqli_num_rows($result) > 0) {
                     </p>
 
                     <div class='button-group'>
-                      " . ($pdfExists ? "<a href='download_pdf.php?id=$imageId' class='btn download-btn'>Download PDF</a>" 
+                      " . ($pdfExists ? "<a href='download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>Download PDF</a>" 
                         : "<span class='no-pdf'>No PDF Available</span>") . "
                         </div>
 

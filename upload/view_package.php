@@ -232,7 +232,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                       <p class='price'>\$ $price <span>/ per person</span></p>
                         <div class='button-group'>";
                 if ($pdfExists) {
-                    echo "<a href='download_pdf.php?id=$imageId' class='btn download-btn'>Download PDF</a>";
+                  echo "<a href='download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>Download PDF</a>";
                 } else {
                     echo "<span class='no-pdf'>No PDF Available</span>";
                 }
