@@ -229,7 +229,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                       </div>
                       <div class='card-price'>
                         
-                      <p class='price'>\$ $price <span>/ per person</span></p>
+                      <p class='price'> $price ₹<span>/ per person</span></p>
                         <div class='button-group'>";
                 if ($pdfExists) {
                   echo "<a href='download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>Download PDF</a>";
