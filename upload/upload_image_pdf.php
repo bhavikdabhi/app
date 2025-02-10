@@ -6,11 +6,10 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     exit;
 }
 
-
 include 'db_config.php';
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Initialize variables for PDF and Image content
     $pdf_content = null;
     $imageData = null;
 
@@ -24,27 +23,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $pdf_content="-";
-
     // Get additional form fields
-    $country = $_POST['country'];
-    $place = $_POST['place'];
-    $description = $_POST['description'];
+    $country = htmlspecialchars($_POST['country']);
+    $place = htmlspecialchars($_POST['place']);
+    $description = htmlspecialchars($_POST['description']);
+    $day = (int)$_POST['day'];
+    $night = (int)$_POST['night'];
+    $pax = (int)$_POST['pax'];
+    $price = htmlspecialchars($_POST['price']);
 
     // Prepare the SQL query to insert the data into the database
-    $sql = "INSERT INTO images (image_name, image_data, country, place, description, pdf) 
-            VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO images (image_name, image_data, country, place, day, night, pax, price, pdf, description) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare the statement
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt) {
-        // Bind the parameters (s = string, b = blob)
-        mysqli_stmt_bind_param($stmt, 'sssssb', $imageName, $imageData, $country, $place, $description, $pdf_content);
+        // Bind the parameters (s = string, i = integer, b = blob)
+        mysqli_stmt_bind_param($stmt, 'sbssiiisss', $imageName, $imageData, $country, $place, $day, $night, $pax, $price, $pdf_content, $description);
+
+        // Send BLOB data for image
+        mysqli_stmt_send_long_data($stmt, 1, $imageData);
 
         // Execute the query
         if (mysqli_stmt_execute($stmt)) {
-             echo "<script>alert('Data Uploaded'); window.location.href='../@dmin/admin_dashboard.php';</script>";
-        
+            echo "<script>alert('Data Uploaded'); window.location.href='../@dmin/admin_dashboard.php';</script>";
         } else {
             echo "Error uploading the image and PDF: " . mysqli_error($conn);
         }
