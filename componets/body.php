@@ -39,6 +39,7 @@
         </div>
         
         <button type="submit" class="btn btn-secondary">Inquire Now</button>
+        
     </form>
                 </div>
               </section>

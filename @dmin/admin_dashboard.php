@@ -39,7 +39,7 @@ include_once '../upload/db_config.php';
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="../upload/upload_form.php">Add Des..</a></li>
-            <li><a href="">Packages</a></li> 
+            <li><a href="../upload/edit_package.php">Packages</a></li> 
             <!-- packages_view.php gallery.php -->
             <li><a href="">Gallery</a></li>
             <li><a href="logout.php" class="logout-btn">Logout</a></li>
