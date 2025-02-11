@@ -167,7 +167,7 @@
         
                   </ul>
         
-                  <button class="btn btn-primary">More destintion</button>
+                  <button class="btn btn-primary" onclick="redirectToDestination()">More destintion</button>
         
                 </div>
               </section>
@@ -258,7 +258,7 @@
                            
                   </ul>
         
-                  <button class="btn btn-primary">View All Packages</button>
+                  <button class="btn btn-primary" onclick="redirectToPackages()">View All Packages</button>
         
                 </div>
               </section>
@@ -419,4 +419,12 @@ Planning your next trip? Have questions about our travel packages? Contact us, a
       }, 5000); // Smooth transition effect
     }, 5000); // Change image every 5 seconds
   });
+</script>
+<script>
+    function redirectToDestination() {
+        window.location.href = "./upload/view_images.php";
+    }
+    function redirectToPackages(){
+      window.location.href = "./upload/view_package.php";
+    }
 </script>

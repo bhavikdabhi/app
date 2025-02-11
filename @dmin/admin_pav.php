@@ -1,28 +1,10 @@
-<!-- packgages view for clint  -->
 <?php
-
-
- include_once './db_config.php'; 
-
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = $_GET['id'];
-
-    $sql = "SELECT image_data FROM images WHERE id = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "i", $id);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $imageData);
-    mysqli_stmt_fetch($stmt);
-
-    if ($imageData) {
-        header("Content-Type: image/jpeg");
-        echo $imageData;
-    } else {
-        echo "No image found.";
-    } 
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: ../@dmin/admin_login.php");
+    exit;
 }
-
-
+include_once '../upload/db_config.php';
 ?>
 
 <!DOCTYPE html>
@@ -38,137 +20,123 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="./ad.css">
     <style>
+
 .button-group {
-    margin-top: 10px;
     display: flex;
-    gap: 4px;
+    gap: 10px; /* Adds spacing between buttons */
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    margin-top: 15px;
 }
 
 .btn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
     text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    min-width: 100px;
+}
+
+/* Upload PDF Button */
+.upload-btn {
+    background-color: #4CAF50;
     color: white;
-    font-size: 14px;
-    transition: 0.3s;
+    border: 2px solid #4CAF50;
 }
 
-.btn:hover {
-    opacity: 0.8;
+.upload-btn:hover {
+    background-color: white;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
 }
 
+/* Edit Button */
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+    border: 2px solid #2196F3;
+}
+
+.edit-btn:hover {
+    background-color: white;
+    color: #2196F3;
+    border: 2px solid #2196F3;
+}
+
+/* PDF Button */
 .download-btn {
-    background-color: #3b79c9;
+    background-color: #FF9800;
+    color: white;
+    border: 2px solid #FF9800;
 }
 
+.download-btn:hover {
+    background-color: white;
+    color: #FF9800;
+    border: 2px solid #FF9800;
+}
 
+/* Delete Button */
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: 2px solid #f44336;
+}
+
+.delete-btn:hover {
+    background-color: white;
+    color: #f44336;
+    border: 2px solid #f44336;
+}
+
+/* No PDF Available */
 .no-pdf {
-    color: red;
+    background-color: #ddd;
+    color: #666;
+    padding: 10px 15px;
+    border-radius: 5px;
     font-size: 14px;
-}
-.card-text {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    max-width: 100%;
-    text-align: justify;
+    text-align: center;
+    min-width: 100px;
 }
 
-
-
-      .header{
-        background: #3b79c9;
-          
-} 
-.popular{
-  padding-top: 150px;
-}
-.package-card .card-banner img {
-    width: 100%;
-    height: 302px;}
-      
     </style>
-
+  
 </head>
 <body>
-<header class="header header" data-header >            
-        <div class="header-bottom">
-          <div class="container">      
-          <div class="">
-                
-                  <img src="../assets/img/icon/logo.png" height="70px"> 
-                </div> 
-             
-                <nav class="navbar" data-navbar>    
-              <div class="navbar-top"> 
-                         
-    
-                <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#3b79c9"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>  </button>
-    
-              </div>
-      
-              <ul class="navbar-list">
-      
-                <li>
-                  <a href="../index.php" class="navbar-link" data-nav-link>home</a>
-                </li>
-      
-                <li>
-                  <a href="#" class="navbar-link" data-nav-link>about us</a>
-                </li>
-      
-                 <li>
-                  <a href="../upload/view_images.php" class="navbar-link" data-nav-link>Destination</a>
-                </li> 
-      
-                <li>
-                  <a href="#package" class="navbar-link" data-nav-link>packages</a>
-                </li>
 
-                <li>
-                  <a href="../index.php#service" class="navbar-link" data-nav-link>Service</a>
-                </li>
+<header class="header">
+    <button class="menu-btn" id="menuToggle">&#9776;</button> 
+    <span class="logo">Admin Dashboard</span>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="new_admin.php">New Admin</a>
+    </nav>
+</header>
 
-      
-                <li>
-                  <a href="../index.php#contact" class="navbar-link" data-nav-link>contact us</a>
-                </li>
-      
-              </ul>
+<div class="dashboard-container">
+    <nav class="sidebar" id="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="admin_dashboard.php">view Des..</a></li>
+            <!-- packages_view.php gallery.php -->
+            <li><a href="">Gallery</a></li>
+            <li><a href="logout.php" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+</div>
 
-            </nav>
-      
-            <a href="tel:+919998963732" class="helpline-box">      
-                <div class="icon-box">
-                
-                  <img src="../assets/img/icon/pcall.svg"> 
-                </div>      
-                <div class="wrapper">
-                  <p class="helpline-title">For Further Inquires :</p>      
-                  <p class="helpline-number">+919998963732</p>
-                </div>        
-              </a>
-            <div class="header-btn-group">
-            <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><g fill="none"><path d="M0 0h24v24H0V0z"/><path d="M0 0h24v24H0V0z" opacity=".87"/></g><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7zm-4 6h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-              </button>
-      </div>
-          </div>
-        </div>
-      
-      </header>
 
-      <section class="package" id="package">
-    <div class="container">
-        <p class="section-subtitle">Popular Packages</p>
-        <h2 class="h2 section-title">Checkout Our Packages</h2>
-        <p class="section-text">
-            Checkout our packages for an unforgettable experience, tailored to suit every traveler’s dream!
-        </p>
+
+    <main class="main-content">
+        <h2>Packages View</h2>
 
         <ul class="package-list">
             <?php
@@ -226,13 +194,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                       <div class='card-price'>
                         
                       <p class='price'> $price ₹<span>/ per person</span></p>
-                        <div class='button-group'>";
+                        <div class='button-group'>
+                        <a href='../upload/edit_pdf.php?id=$imageId' class='btn upload-btn'>Upload PDF</a>
+                        <a href='../upload/edit_package.php?id=$imageId' class='btn edit-btn'>Edit</a>";
                 if ($pdfExists) {
-                  echo "<a href='download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>Download PDF</a>";
+                  echo "<a href='../upload/download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>PDF</a>";
                 } else {
                     echo "<span class='no-pdf'>No PDF Available</span>";
                 }
-                echo "</div>
+                echo " <a href='../upload/delete_image.php?id=$imageId' class='btn delete-btn' onclick='return confirm(\"Are you sure you want to delete this record?\")'>Delete</a>
+                             
+                </div>
                       </div>
                     </div>
                   </li>";
@@ -245,15 +217,21 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             ?>
         </ul>
 
-       
-    </div>
-</section>
+    </main>
+
+<script>
+document.getElementById("menuToggle").addEventListener("click", function () {
+    let sidebar = document.getElementById("sidebar");
+    let content = document.querySelector(".main-content");
+
+    sidebar.classList.toggle("open");
+    content.classList.toggle("shifted");
+});
+</script>
 
 
 
 
-<script src="../assets/js/script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>

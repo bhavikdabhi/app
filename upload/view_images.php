@@ -126,7 +126,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 </li> 
       
                 <li>
-                  <a href="#package" class="navbar-link" data-nav-link>packages</a>
+                  <a href="../upload/view_package.php" class="navbar-link" data-nav-link>packages</a>
                 </li>
 
                 <li>

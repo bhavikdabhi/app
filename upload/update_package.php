@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check if a new image is uploaded
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-        $imageData = file_get_contents($_FILES['image']['tmp_name']);
+        $imageData = file_get_contents($_FILES['image']['tmp_name']); // Convert image to binary
         $update_image = true;
     }
 

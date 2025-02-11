@@ -38,8 +38,11 @@ include_once '../upload/db_config.php';
     <nav class="sidebar" id="sidebar">
         <h2>Admin Panel</h2>
         <ul>
-            <li><a href="../upload/upload_form.php">Add Des..</a></li>
-            <li><a href="../upload/edit_package.php">Packages</a></li> 
+       
+            <li><a href="../upload/upload_form.php">Add Destination</a></li> 
+            <li>
+            <a href="./admin_pav.php">Packages</a></li>          
+            <!-- <li><a href="../upload/edit_package.php">Edit Packages</a></li>  -->
             <!-- packages_view.php gallery.php -->
             <li><a href="">Gallery</a></li>
             <li><a href="logout.php" class="logout-btn">Logout</a></li>
@@ -86,7 +89,7 @@ include_once '../upload/db_config.php';
 
                                 <div class='button-group'>
                                     <a href='../upload/edit_pdf.php?id=$imageId' class='btn upload-btn'>Upload PDF</a>
-                                    <a href='../upload/edit_image.php?id=$imageId' class='btn edit-btn'>Edit</a>
+                                    <a href='../upload/edit_package.php?id=$imageId' class='btn edit-btn'>Edit</a>
                                     " . ($pdfExists ? "<a href='../upload/download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>PDF</a>" 
                                     : "<span class='no-pdf'>No PDF Available</span>") . "
                                     <a href='../upload/delete_image.php?id=$imageId' class='btn delete-btn' onclick='return confirm(\"Are you sure you want to delete this record?\")'>Delete</a>
