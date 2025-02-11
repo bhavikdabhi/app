@@ -160,7 +160,7 @@ include_once '../upload/db_config.php';
                     echo "<li>
                     <div class='package-card'>
                       <figure class='card-banner'>
-                        <img src='display_image.php?id=$imageId' alt='$place' loading='lazy'>
+                        <img src='../upload/display_image.php?id=$imageId' alt='$place' loading='lazy'>
                       </figure>
                       <div class='card-content'>
                         <h3 class='h3 card-title'>$country - $place</h3>

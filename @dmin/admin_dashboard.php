@@ -72,7 +72,7 @@ include_once '../upload/db_config.php';
                     <li>
                         <div class='popular-card'>
                             <figure class='card-img'>
-                                <img src='display_image.php?id=$imageId' alt='$place' loading='lazy'>
+                                <img src='../upload/display_image.php?id=$imageId' alt='$place' loading='lazy'>
                             </figure>
 
                             <div class='card-content'>

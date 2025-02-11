@@ -1153,8 +1153,22 @@
     .container { max-width: 1180px; }
   
   }
+  .button-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 4px;
+}
 
-  
+.btn:hover {
+  opacity: 0.8;
+}
+.download-btn{
+  background-color: var( --navy-blue);
+}
+  .no-pdf{
+   
+  color: red;
+  }
   .mai {
     display: flex;
     flex-direction: column;
