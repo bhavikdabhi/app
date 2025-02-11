@@ -104,7 +104,7 @@ if (mysqli_num_rows($result) > 0) {
                     </p>
 
                     <div class='button-group'>
-                      " . ($pdfExists ? "<a href='download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>Download PDF</a>" 
+                      " . ($pdfExists ? "<a href='./upload/download_pdf.php?id=$imageId' target='_blank' class='btn download-btn'>Download PDF</a>" 
                         : "<span class='no-pdf'>No PDF Available</span>") . "
                     </div>
 
@@ -198,7 +198,7 @@ $result = mysqli_query($conn, $sql);
                       <p class='price'> $price ₹<span>/ per person</span></p>
                         <div class='button-group'>";
                 if ($pdfExists) {
-                  echo "<a href='download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>Download PDF</a>";
+                  echo "<a href='./upload/download_pdf.php?id=$imageId' class='btn download-btn' target='_blank'>Download PDF</a>";
                 } else {
                     echo "<span class='no-pdf'>No PDF Available</span>";
                 }

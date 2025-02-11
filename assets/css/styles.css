@@ -492,7 +492,7 @@
   
   .package-card .card-banner img {
     width: 100%;
-    height: 100%;
+    height: 305px;
     object-fit: cover;
   }
   
