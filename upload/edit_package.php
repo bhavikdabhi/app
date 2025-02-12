@@ -36,7 +36,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/edit.css">
 
-
 </head>
 <body>
     <div class="container">
@@ -86,11 +85,17 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         </div>                       
                     </div>
                   
-                        <button type="submit" class="nextBtn">Update Package</button>                
+                        <button type="submit" class="nextBtn">Update Package</button>   
+                        <button class="view-btn" onclick="redirectToImages()">Packages</button>        
                 </div> 
                    
         </form>
     </div>
     <script src="./script.js"></script>
+    <script>
+    function redirectToImages() {
+        window.location.href = "../@dmin/admin_dashboard.php";
+    }
+</script>
 </body>
 </html>

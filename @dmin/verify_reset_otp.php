@@ -36,7 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST">
             <label>Enter OTP:</label>
             <input type="text" name="otp" required>
+            <div class="button-group">
             <button type="submit">Verify</button>
+            <button type="button" class="go-back-btn" onclick="window.location.href='<?php echo $_SERVER['HTTP_REFERER']; ?>'">
+        Go Back
+    </button>
+</div>
         </form>
     </div>
 </body>

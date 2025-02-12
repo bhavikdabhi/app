@@ -3,7 +3,7 @@ session_start();
 include '../upload/db_config.php';
 
 if (!isset($_SESSION['otp_verified']) || !isset($_SESSION['reset_user'])) {
-    echo "<script>alert('Unauthorized access!'); window.location.href='forgot_password.html';</script>";
+    echo "<script>alert('Unauthorized access!'); window.location.href='admin_login.php';</script>";
     exit();
 }
 
@@ -57,7 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST">
             <label>New Password:</label>
             <input type="password" name="password" required>
+            <div class="button-group">
             <button type="submit">Reset Password</button>
+            <button type="button" class="go-back-btn" onclick="window.location.href='<?php echo $_SERVER['HTTP_REFERER']; ?>'">
+        Go Back
+    </button>
+</div>
         </form>
     </div>
 </body>

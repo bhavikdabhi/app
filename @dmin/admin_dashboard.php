@@ -36,7 +36,7 @@ include_once '../upload/db_config.php';
 
 <div class="dashboard-container">
     <nav class="sidebar" id="sidebar">
-        <h2>Admin Panel</h2>
+        <h2>d</h2>
         <ul>
        
             <li><a href="../upload/upload_form.php">Add Destination</a></li> 

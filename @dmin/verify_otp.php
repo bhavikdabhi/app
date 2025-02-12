@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: ../@dmin/admin_login.php");
+    exit;
+}
+
+
 include '../upload/db_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -46,7 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="verify_otp.php" method="POST">
             <label>Enter OTP:</label>
             <input type="text" name="otp" required>
+            <div class="button-group">
             <button type="submit">Verify</button>
+            <button type="button" class="go-back-btn" onclick="window.location.href='<?php echo $_SERVER['HTTP_REFERER']; ?>'">
+        Go Back
+    </button>
+</div>
         </form>
     </div>
 </body>

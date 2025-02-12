@@ -22,8 +22,12 @@
 
             <label>Phone Number:</label>
             <input type="text" name="phone" required>
-
+            <div class="button-group">
             <button type="submit">Confirm</button>
+            <button type="button" class="go-back-btn" onclick="window.location.href='<?php echo $_SERVER['HTTP_REFERER']; ?>'">
+        Go Back
+    </button>
+</div>
         </form>
     </div>
 </body>

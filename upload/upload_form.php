@@ -20,6 +20,25 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="css/edit.css">
+<style>
+    .container form button, .backBtn{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    background-color: #4070f4;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    text-decoration: none;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -67,8 +86,8 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                     </div>
                   
                         <button type="submit" class="nextBtn">Update Package</button>                
-                </div> 
-                   
+                            <a href="../@dmin/admin_dashboard.php" class="backBtn">Go Back</a>
+                </div>                    
         </form>
     </div>
     <script src="./css/script.js"></script>
