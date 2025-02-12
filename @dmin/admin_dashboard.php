@@ -29,8 +29,8 @@ include_once '../upload/db_config.php';
     <button class="menu-btn" id="menuToggle">&#9776;</button> 
     <span class="logo">Admin Dashboard</span>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="new_admin.php">New Admin</a>
+        <a href="../index.php">Home</a>
+        <a href="./register.php">New Admin</a>
     </nav>
 </header>
 

@@ -64,6 +64,20 @@ input[type="text"], input[type="password"], input[type="file"], textarea {
     margin: 10px 0;
     border-radius: 5px;
 }
+.change-password-btn {
+    display: inline-block;
+    background: var(--primary-color); /* Blue button */
+    color: red; /* White text */
+    text-decoration: none;   
+    padding: 10px 20px;
+    border-radius: var(--btn-radius); /* Smooth edges */
+    transition: background 0.3s ease-in-out;
+    text-align: center;
+}
+
+.change-password-btn:hover {
+    background: var(--hover-bg); /* Darker blue on hover */
+}
 
 /* Login Container */
 .login-container {

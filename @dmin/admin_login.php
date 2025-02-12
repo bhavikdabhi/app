@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connection.php';
+require '../upload/db_config.php';
 
 // Define the maximum number of login attempts
 $max_attempts = 5;
@@ -67,6 +67,9 @@ if (isset($_POST['login'])) {
             <div class="form-group">
                 <input type="password" name="password" placeholder="Password" required>
             </div>
+            <a href="./forgot_password.php" class="change-password-btn">Change Password</a>
+
+
             <button type="submit" name="login" class="btn">Login</button>
         </form>
     </div>
